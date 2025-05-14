@@ -30,18 +30,18 @@
     }
 
     h1 {
-      font-size: 2em; /* Smaller font size */
-      color: purple;
+      font-size: 2em;
+      color: rgba(0, 255, 0, 0.7); /* Transparent green color */
       font-family: 'Pacifico', cursive;
       animation: glow 1.5s ease-in-out infinite alternate;
     }
 
     @keyframes glow {
       from {
-        text-shadow: 0 0 10px purple, 0 0 20px purple;
+        text-shadow: 0 0 10px green, 0 0 20px green;
       }
       to {
-        text-shadow: 0 0 20px purple, 0 0 30px purple;
+        text-shadow: 0 0 20px green, 0 0 30px green;
       }
     }
 
@@ -57,17 +57,18 @@
     }
 
     p {
-      font-size: 1.2em; /* Smaller font size */
+      font-size: 1.2em;
       color: #ffffff;
       margin-top: 10px;
       font-weight: 400;
+      font-family: 'Roboto', sans-serif; /* Changed font */
     }
 
     .profile {
       margin-top: 20px;
       border-radius: 50%;
-      width: 120px; /* Slightly smaller */
-      height: 120px; /* Slightly smaller */
+      width: 120px;
+      height: 120px;
       overflow: hidden;
       animation: pulse 1.5s ease-in-out infinite alternate;
     }
@@ -102,7 +103,7 @@
 
     .skills, .experience {
       margin-top: 30px;
-      font-size: 1em; /* Smaller font size */
+      font-size: 1em;
       color: #fff;
       font-family: 'Roboto', sans-serif;
     }
@@ -113,19 +114,19 @@
     }
 
     .skills li, .experience li {
-      margin: 5px 0; /* Reduced spacing */
+      margin: 5px 0;
     }
 
     .logos {
       display: flex;
       justify-content: center;
-      gap: 15px; /* Reduced gap */
+      gap: 15px;
       margin-top: 20px;
       flex-wrap: wrap;
     }
 
     .logos img {
-      width: 40px; /* Smaller logos */
+      width: 40px;
       height: auto;
       transition: transform 0.3s;
     }
@@ -137,7 +138,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Vern</h1>
+    <h1>Vern's Portfolio</h1>
     <p>Welcome to my simple portfolio!</p>
 
     <!-- Profile Picture -->
@@ -163,9 +164,9 @@
     <div class="experience">
       <h2>Experience</h2>
       <ul>
-        <li>Currently a second year IT students</li>
+        <li>Currently a second year IT student</li>
         <li>Still learning about software</li>
-        <li>Mistakes is one of my motivatios</li>
+        <li>Mistakes are one of my motivations</li>
       </ul>
     </div>
 
