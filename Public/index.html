@@ -4,18 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vern's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: sans-serif;
       background: black;
+      color: white;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-      color: white;
     }
 
     .container {
@@ -24,163 +23,69 @@
       padding: 40px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
-      animation: fadeIn 2s ease-in-out;
       width: 80%;
       max-width: 1000px;
     }
 
-    h1 {
-      font-size: 2em;
-      color: rgba(0, 255, 0, 0.7); /* Transparent green color */
-      font-family: 'Pacifico', cursive;
-      animation: glow 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px green, 0 0 20px green;
-      }
-      to {
-        text-shadow: 0 0 20px green, 0 0 30px green;
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #ffffff;
-      margin-top: 10px;
-      font-weight: 400;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .profile {
+    button {
       margin-top: 20px;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      overflow: hidden;
-      animation: pulse 1.5s ease-in-out infinite alternate;
-    }
-
-    .profile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      animation: rotate 5s linear infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .skills, .experience {
-      margin-top: 30px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: limegreen;
+      color: black;
       font-size: 1em;
-      color: #fff;
-      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
     }
 
-    .skills ul, .experience ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .skills li, .experience li {
-      margin: 5px 0;
-    }
-
-    .logos {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logos img {
-      width: 40px;
-      height: auto;
-      transition: transform 0.3s;
-    }
-
-    .logos img:hover {
-      transform: scale(1.2);
+    iframe {
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Vern's Portfolio</h1>
-    <p>Welcome to my simple portfolio!</p>
-
-    <!-- Profile Picture -->
-    <div class="profile">
-      <img src="https://i.imgur.com/FY9baKM.jpeg" />
-    </div>
-
-    <!-- Skills Section -->
-    <div class="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>React</li>
-        <li>Node.js</li>
-      </ul>
-    </div>
-
-    <!-- Experience Section -->
-    <div class="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li>Currently a second year IT student</li>
-        <li>Still learning about software</li>
-        <li>Mistakes are one of my motivations</li>
-      </ul>
-    </div>
-
-    <!-- Logos Section -->
-    <div class="logos">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-    </div>
-
-    <!-- YouTube Audio Section -->
-    <iframe width="0%" height="0" src="https://www.youtube.com/embed/aTzNMZ3Z5cE?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <p>Click below to start music 🎵</p>
+    <button onclick="unmuteVideo()">Play Music</button>
+    <div id="player"></div>
   </div>
+
+  <script>
+    let player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'aTzNMZ3Z5cE', // your YouTube video ID
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          loop: 1,
+          playlist: 'aTzNMZ3Z5cE',
+          mute: 1 // mute first so autoplay works
+        },
+        events: {
+          onReady: event => {
+            event.target.playVideo();
+          }
+        }
+      });
+    }
+
+    function unmuteVideo() {
+      if (player) {
+        player.unMute();
+      }
+    }
+
+    // Load YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(tag);
+  </script>
 </body>
 </html>
