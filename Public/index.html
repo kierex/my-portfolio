@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vern's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: black;
       height: 100vh;
       display: flex;
@@ -29,17 +30,18 @@
     }
 
     h1 {
-      font-size: 3em;
-      color: yellow;
+      font-size: 4em;
+      color: purple;
+      font-family: 'Pacifico', cursive;
       animation: glow 1.5s ease-in-out infinite alternate;
     }
 
     @keyframes glow {
       from {
-        text-shadow: 0 0 10px yellow, 0 0 20px yellow;
+        text-shadow: 0 0 10px purple, 0 0 20px purple;
       }
       to {
-        text-shadow: 0 0 20px yellow, 0 0 30px yellow;
+        text-shadow: 0 0 20px purple, 0 0 30px purple;
       }
     }
 
@@ -55,9 +57,10 @@
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 1.5em;
       color: #ffffff;
       margin-top: 10px;
+      font-weight: 400;
     }
 
     .profile {
@@ -73,6 +76,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      animation: rotate 5s linear infinite;
     }
 
     @keyframes pulse {
@@ -87,10 +91,20 @@
       }
     }
 
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
     .skills, .experience {
       margin-top: 30px;
       font-size: 1.2em;
       color: #fff;
+      font-family: 'Roboto', sans-serif;
     }
 
     .skills ul, .experience ul {
@@ -124,7 +138,7 @@
 <body>
   <div class="container">
     <h1>Vern</h1>
-    <p>Welcome to my simple portfolio!</p>
+    <p>Welcome to my creative portfolio!</p>
 
     <!-- Profile Picture -->
     <div class="profile">
