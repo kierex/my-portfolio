@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vern Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #fff;
+      animation: glow 2s infinite alternate;
+    }
+
+    .pulse {
+      margin-top: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: #00ffe0;
+      border-radius: 50%;
+      animation: pulseAnim 1.5s infinite;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .logos {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .logos img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 5px #00ffe0);
+    }
+
+    .logos img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 10px #ffffff);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+    }
+
+    @keyframes pulseAnim {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vern</h1>
+    <div class="pulse"></div>
+    <div class="logos">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" title="HTML5" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" title="CSS3" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React" />
+    </div>
+  </div>
+</body>
+</html>
