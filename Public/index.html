@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vern's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -17,25 +17,32 @@
       align-items: center;
       padding: 20px;
       box-sizing: border-box;
+      font-size: 0.8em;
     }
 
     .container {
       text-align: center;
       background-color: rgba(0, 0, 255, 0.2);
-      padding: 40px 20px;
+      padding: 30px 15px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
       animation: fadeIn 2s ease-in-out;
       width: 100%;
       max-width: 800px;
+      font-size: 0.9em;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 1.6em;
       color: rgba(0, 255, 0, 0.7);
       font-family: 'Pacifico', cursive;
       animation: glow 1.5s ease-in-out infinite alternate;
       margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      margin-bottom: 5px;
     }
 
     @keyframes glow {
@@ -59,16 +66,16 @@
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 0.9em;
       margin-top: 10px;
-      font-weight: 400;
+      font-weight: 300;
     }
 
     .profile {
       margin: 20px auto;
       border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       overflow: hidden;
       animation: pulse 1.5s ease-in-out infinite alternate;
     }
@@ -92,33 +99,29 @@
     }
 
     .skills, .experience {
-      margin-top: 30px;
-    }
-
-    .skills h2, .experience h2 {
-      margin-bottom: 10px;
-      font-size: 1.5em;
+      margin-top: 20px;
     }
 
     .skills ul, .experience ul {
       list-style: none;
       padding: 0;
+      font-size: 0.85em;
     }
 
     .skills li, .experience li {
-      margin: 5px 0;
+      margin: 4px 0;
     }
 
     .logos {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 12px;
       margin-top: 20px;
     }
 
     .logos img {
-      width: 40px;
+      width: 30px;
       height: auto;
       transition: transform 0.3s;
     }
@@ -128,11 +131,12 @@
     }
 
     .spotify-embed {
-      margin-top: 30px;
+      margin-top: 25px;
       padding: 0 10px;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      font-size: 0.8em;
     }
 
     .spotify-embed iframe {
