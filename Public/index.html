@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <title>S0umyajit | Portfolio</title>
-  <meta name="description" content="Self Developed personal website build with React.js">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vern's Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, rgba(0, 0, 255, 0.1), rgba(0, 0, 255, 0.2));
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-  <!-- Google / Search Engine Tags -->
-  <meta itemprop="name" content="S0umyajit | Portfolio">
-  <meta itemprop="description" content="Self Developed personal website build with React.js">
-  <meta itemprop="image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 255, 0.2);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
 
-  <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://soumyajit.vercel.app">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="S0umyajit | Portfolio">
-  <meta property="og:description" content="Self Developed personal website build with React.js">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
+    h1 {
+      font-size: 3em;
+      color: yellow;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
 
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="S0umyajit | Portfolio">
-  <meta name="twitter:description" content="Self Developed personal website build with React.js">
-  <meta name="twitter:image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow;
+      }
+      to {
+        text-shadow: 0 0 20px yellow, 0 0 30px yellow;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
+  <div class="container">
+    <h1>Vern</h1>
+    <p>Welcome to my animated programming portfolio!</p>
+  </div>
 </body>
-
 </html>
