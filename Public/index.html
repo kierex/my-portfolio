@@ -9,8 +9,8 @@
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: black;
-      color: white;
+      background: blue;
+      color: yellow;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -28,8 +28,9 @@
       box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
       animation: fadeIn 2s ease-in-out;
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
       font-size: 0.9em;
+      position: relative;
     }
 
     h1 {
@@ -43,32 +44,6 @@
     h2 {
       font-size: 1.2em;
       margin-bottom: 5px;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px green, 0 0 20px green;
-      }
-      to {
-        text-shadow: 0 0 20px green, 0 0 30px green;
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    p {
-      font-size: 0.9em;
-      margin-top: 10px;
-      font-weight: 300;
     }
 
     .profile {
@@ -87,29 +62,27 @@
       animation: rotate 5s linear infinite;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .info-sections {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 20px;
+      text-align: left;
+      flex-wrap: wrap;
     }
 
     .skills, .experience {
-      margin-top: 20px;
+      flex: 1;
+      min-width: 200px;
     }
 
-    .skills ul, .experience ul {
-      list-style: none;
-      padding: 0;
+    ol {
+      padding-left: 20px;
       font-size: 0.85em;
     }
 
-    .skills li, .experience li {
-      margin: 4px 0;
+    li {
+      margin: 6px 0;
     }
 
     .logos {
@@ -143,10 +116,73 @@
       width: 100%;
       border-radius: 12px;
     }
+
+    .contact-info {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      text-align: right;
+      font-size: 0.9em;
+      color: yellow;
+    }
+
+    .email, .contact-number {
+      margin-top: 5px;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px green, 0 0 20px green;
+      }
+      to {
+        text-shadow: 0 0 20px green, 0 0 30px green;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Contact Info in top right -->
+    <div class="contact-info">
+      <div class="email">
+        📧 <a href="mailto:vern@gmail.com">vern@gmail.com</a>
+      </div>
+      <div class="contact-number">
+        📱 <a href="tel:+639632133040">09632133040</a>
+      </div>
+    </div>
+
     <h1>Vern's Portfolio</h1>
     <p>Welcome to my simple portfolio!</p>
 
@@ -155,28 +191,30 @@
       <img src="https://i.imgur.com/FY9baKM.jpeg" alt="Profile picture" />
     </div>
 
-    <!-- Skills Section -->
-    <div class="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>React</li>
-        <li>Node.js</li>
-      </ul>
-    </div>
+    <!-- Skills and Experience Side-by-Side -->
+    <div class="info-sections">
+      <div class="skills">
+        <h2>Skills</h2>
+        <ol>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Java</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>PHP</li>
+        </ol>
+      </div>
 
-    <!-- Experience Section -->
-    <div class="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li>Currently a second year IT student</li>
-        <li>Still learning about software</li>
-        <li>Mistakes are one of my motivations</li>
-      </ul>
+      <div class="experience">
+        <h2>Experience</h2>
+        <ol>
+          <li>Currently a second year IT student</li>
+          <li>Still learning about software</li>
+          <li>Mistakes are one of my motivations</li>
+        </ol>
+      </div>
     </div>
 
     <!-- Logos Section -->
