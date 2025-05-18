@@ -7,12 +7,29 @@
   <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBZvtDbJ4A6SMgKU6DLkoLjxvFBgxOdTUe2Tfvdm-Nki57LbsA79_bDtg&s=10" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #1e1e1e;
       color: #fff;
+      overflow-x: hidden;
+    }
+
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -28,7 +45,7 @@
 
     #profile-pic {
       border-radius: 50%;
-      border: 3px solid blue;
+      border: 3px solid #00bfff;
       width: 100px;
       height: 100px;
       object-fit: cover;
@@ -36,7 +53,8 @@
 
     h1 {
       margin: 10px 0 5px;
-      font-size: 24px;
+      font-size: 28px;
+      color: #00bfff;
     }
 
     p.tagline {
@@ -53,6 +71,12 @@
       border: 1px solid gray;
       border-radius: 10px;
       background-color: #2a2a2a;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
     }
 
     section h2 {
@@ -71,24 +95,53 @@
       background-color: #1e1e1e;
       border: 1px solid gray;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       font-size: 14px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill:hover, .project:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px #00bfff80;
+    }
+
+    a {
+      color: #00bfff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #66d9ff;
+      text-decoration: underline;
     }
 
     footer {
-      margin: 20px;
+      margin: 30px;
       font-size: 12px;
       color: gray;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
       .skill, .project {
         flex: 1 1 100%;
       }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      section {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Rainbow shining background canvas -->
+  <canvas id="bg-canvas"></canvas>
 
   <header data-aos="fade-down">
     <img id="profile-pic" src="https://i.imgur.com/N4HhMvF.jpeg" alt="Your Profile" />
@@ -129,20 +182,79 @@
 
   <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:vern@gmail.com" style="color:#00bfff;">vern@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/vraxyxx" style="color:#00bfff;">github.com/vraxyxx</a></p>
+    <p>Email: <a href="mailto:vern@gmail.com">vern@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/vraxyxx">github.com/vraxyxx</a></p>
   </section>
 
   <footer data-aos="zoom-in">
-    &copy; 2025 Your Name. All rights reserved.
+    &copy; 2025 Vern魚. All rights reserved.
   </footer>
 
+  <!-- AOS Animation -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
+    });
+  </script>
+
+  <!-- Rainbow canvas background -->
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const circles = [];
+    for (let i = 0; i < 60; i++) {
+      circles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 40 + 20,
+        dx: (Math.random() - 0.5) * 1.5,
+        dy: (Math.random() - 0.5) * 1.5,
+        hue: Math.random() * 360,
+        speed: Math.random() * 0.5 + 0.1
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let c of circles) {
+        c.hue += c.speed;
+        const color = `hsla(${c.hue}, 100%, 60%, 0.4)`;
+
+        ctx.beginPath();
+        const gradient = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.r);
+        gradient.addColorStop(0, color);
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gradient;
+        ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        c.x += c.dx;
+        c.y += c.dy;
+
+        if (c.x < 0 || c.x > width) c.dx *= -1;
+        if (c.y < 0 || c.y > height) c.dy *= -1;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
     });
   </script>
 </body>
